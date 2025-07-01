@@ -78,10 +78,11 @@ typedef struct emissary_router emissary_router_t;
  * Initialize a new I2P router instance.
  * 
  * Creates and configures an I2P router with sensible defaults:
- * - NTCP2 transport enabled on a random port
+ * - NTCP2 transport enabled on a random port (unpublished)
  * - Transit tunnels disabled for minimal resource usage
- * - SAMv3 API bridge enabled on default ports (7656 TCP, 7655 UDP)
+ * - SAMv3 API bridge enabled on random ports
  * - Local data directory in system temp location
+ * - Insecure tunnels enabled for faster startup
  * 
  * The router is created in a stopped state. Call emissary_start() to begin
  * I2P network operations.

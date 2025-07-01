@@ -91,6 +91,35 @@ impl EmissaryRouter {
         // Create default configuration with SAMv3 enabled
         let mut config = Config::default();
         
+        // Generate random keys for NTCP2
+        let mut ntcp2_key = [0u8; 32];
+        let mut ntcp2_iv = [0u8; 16];
+        
+        // Use system time as seed for simple randomization
+        let mut seed = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos() as u64;
+        
+        // Simple LCG for key generation
+        for i in 0..32 {
+            seed = seed.wrapping_mul(1103515245).wrapping_add(12345);
+            ntcp2_key[i] = (seed >> 24) as u8;
+        }
+        for i in 0..16 {
+            seed = seed.wrapping_mul(1103515245).wrapping_add(12345);
+            ntcp2_iv[i] = (seed >> 24) as u8;
+        }
+        
+        // Enable NTCP2 transport with random port
+        config.ntcp2 = Some(emissary_core::Ntcp2Config {
+            port: 0, // Let OS assign a random port
+            host: None,
+            publish: false, // Don't publish for embedded usage
+            key: ntcp2_key,
+            iv: ntcp2_iv,
+        });
+        
         // Enable SAMv3 with default ports (0 = random port assignment)
         config.samv3_config = Some(SamConfig {
             tcp_port: 0, // Will be assigned by OS
