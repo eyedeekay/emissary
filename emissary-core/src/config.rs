@@ -133,7 +133,7 @@ pub struct TransitConfig {
 }
 
 /// Router configuration.
-#[derive(Default)]
+#[derive(Default, Clone)]
 pub struct Config {
     /// Allow local addresses.
     pub allow_local: bool,

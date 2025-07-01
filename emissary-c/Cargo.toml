@@ -1,0 +1,25 @@
+[package]
+name = "emissary-c"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "C Foreign Function Interface (FFI) bindings for the Emissary I2P router"
+repository = "https://github.com/eyedeekay/emissary"
+authors = ["Emissary Contributors"]
+keywords = ["i2p", "network", "privacy", "ffi", "c"]
+categories = ["network-programming", "api-bindings"]
+
+[lib]
+name = "emissary_c"
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+emissary-core = { path = "../emissary-core" }
+emissary-util = { path = "../emissary-util" }
+tokio = { workspace = true, features = ["full"] }
+
+[build-dependencies]
+cbindgen = "0.26"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
