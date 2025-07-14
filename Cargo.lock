@@ -1613,7 +1613,7 @@ dependencies = [
  "iced",
  "igd-next",
  "natpmp",
- "netdev 0.35.2",
+ "netdev 0.36.0",
  "parking_lot 0.12.4",
  "rand 0.8.5",
  "rand_core 0.6.4",
@@ -3426,9 +3426,9 @@ dependencies = [
 
 [[package]]
 name = "netdev"
-version = "0.35.2"
+version = "0.36.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e81788709c948af7c0422e0bec0fd96c7bbbc1c53ac458e4c0a1bb2f05cf273e"
+checksum = "862209dce034f82a44c95ce2b5183730d616f2a68746b9c1959aa2572e77c0a1"
 dependencies = [
  "dlopen2",
  "ipnet",
@@ -4570,9 +4570,9 @@ checksum = "19b30a45b0cd0bcca8037f3d0dc3421eaf95327a17cad11964fb8179b4fc4832"
 
 [[package]]
 name = "reqwest"
-version = "0.12.20"
+version = "0.12.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eabf4c97d9130e2bf606614eb937e86edac8292eaa6f422f995d7e8de1eb1813"
+checksum = "4c8cea6b35bcceb099f30173754403d2eba0a5dc18cea3630fccd88251909288"
 dependencies = [
  "base64",
  "bytes",
